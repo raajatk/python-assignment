@@ -15,3 +15,6 @@ An assignment on the Sentiment Analysis on the IMDB Reviews
 # running-the-program
     The program can be run by the following command:
         python main.py
+
+# Downloads
+    Please download the datasets from the kaggle page and add them in the input folder.
