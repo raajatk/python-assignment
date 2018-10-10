@@ -2,27 +2,23 @@
 # It is defined by the kaggle/python docker image: https://github.com/kaggle/docker-python
 # For example, here's several helpful packages to load in 
 
-import numpy as np # linear algebra
 import pandas as pd # data processing, CSV file I/O (e.g. pd.read_csv)
 import re
 from bs4 import BeautifulSoup
-import nltk
 from multiprocessing import Pool
 from sklearn.feature_extraction.text import CountVectorizer
 import os
-import time
 from nltk.corpus import stopwords
-from sklearn.ensemble import RandomForestClassifier
 
 # Input data files are available in the "../input/" directory.
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 import os
-print(os.listdir("../input"))
+print(os.listdir("./input"))
 
 # Any results you write to the current directory are saved as output.
 
-train = pd.read_csv("../input/labeledTrainData.tsv", header = 0, delimiter = '\t')
+train = pd.read_csv("./input/labeledTrainData.tsv", header = 0, delimiter = '\t')
 
 def review_to_words( raw_review):
         review_text = BeautifulSoup(raw_review, features="html5lib").get_text()
@@ -68,7 +64,7 @@ print("Training the data set...")
 clf = clf.fit(train_data_features, train["sentiment"])
 print("Training Completed")
 
-test = pd.read_csv("../input/testData.tsv", header=0, delimiter="\t", \
+test = pd.read_csv("./input/testData.tsv", header=0, delimiter="\t", \
                     quoting=3 )
 print("Reading the Test Data...")
 num_reviews = len(test["review"])
